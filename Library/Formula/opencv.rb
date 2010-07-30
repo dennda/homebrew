@@ -22,7 +22,9 @@ class Opencv <Formula
   # There are other optional dependencies but they don't currently exist in Homebrew.
 
   def install
-    system "cmake -G 'Unix Makefiles' -DCMAKE_INSTALL_PREFIX:PATH=#{prefix} ."
+    makefiles = "cmake -G 'Unix Makefiles' -DCMAKE_INSTALL_PREFIX:PATH=#{prefix} ."
+    makefiles += " -DOPENCV_EXTRA_C_FLAGS='-arch i386 -m32'" if ARGV.include? '--build32'
+    system makefiles
     system "make"
     system "make install"
   end
