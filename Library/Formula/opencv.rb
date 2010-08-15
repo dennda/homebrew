@@ -3,7 +3,7 @@ require 'formula'
 class Opencv <Formula
   # Use head, don't install 2.1.0 due to a *massive* memory leak:
   # https://code.ros.org/trac/opencv/ticket/253
-  head 'https://code.ros.org/svn/opencv/trunk/opencv', :using => :svn
+  head 'https://code.ros.org/svn/opencv/trunk/opencv', :using => :svn, :revision => '3478'
   homepage 'http://opencv.willowgarage.com/wiki/'
 
   depends_on 'cmake'
